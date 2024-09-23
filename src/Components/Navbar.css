@@ -1,5 +1,5 @@
-
-nav{
+/* General nav styling */
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,35 +7,104 @@ nav{
     margin: 0 auto;
     padding: 1rem;
     height: 80px;
+    position: relative;
+
 }
-
-
-nav ul{
+  
+  nav ul {
     display: flex;
     gap: 1.5rem;
     list-style-type: none;
-    
-}
-
-
-nav ul li a{
+    position: relative;
+  }
+  
+  nav ul li a {
     text-decoration: none;
     color: #000;
     font-weight: 700;
     text-transform: uppercase;
-}
-
-nav button{
+  }
+  
+  nav button {
     background-color: var(--red);
     color: white;
     padding: 5px 10px;
     border: none;
     cursor: pointer;
     font-weight: 700;
-    
-}
+  }
+  
+  nav button:active {
+    background-color: #960610;
+  }
+  
+  /* Hamburger menu styling */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 10; /* Make sure the hamburger is on top of other elements */
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 3px 0;
+    transition: all 0.4s ease;
+  }
+  
+  /* When hamburger is clicked, turn it into an X */
+  .hamburger.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
 
-nav button:active{
-  background-color: #960610;
-}
+  
+  /* Responsive nav menu */
+  @media (max-width: 900px) {
 
+    nav ul {
+    position: absolute;
+      top: 80px;
+      right: 0;
+      height: 60vh;
+      width: 100%;
+      background-color: #4d4d4d;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 5; /* Ensure the menu appears on top */
+      overflow: hidden;
+    }
+  
+    /* Open the menu when hamburger is clicked */
+    nav ul.open {
+      transform: translateX(0);
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    nav ul li a {
+        font-size: 3rem;
+      color: #000;
+    }
+  
+    nav button {
+      display: none;
+    }
+}
+  

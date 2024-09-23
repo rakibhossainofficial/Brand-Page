@@ -75,3 +75,12 @@ body{
   transition: 0.3s;
   transform: scale(1.2);
 }
+
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+  }
+  
+  
+}
